@@ -31,8 +31,13 @@ alter table equipo add constraint fk_equipo_marca foreign key (idmarca) referenc
 
 
 insert into marca (codigo,descripcion) values('M001','LG');
+insert into marca (codigo,descripcion) values('M002','DELL');
 insert into pais (codigo,nombre) values('L001','Perú');
+insert into pais (codigo,nombre) values('L002','Ecuador');
 insert into equipo (idpais,idmarca,nombre,descripcion,estado) values (1,1,'Monitor','Monitor Curvo de 29 pulgadas','Operativo');
+
+
+select * from marca m;
 
 select e.idequipo, p.codigo as cod_pais ,p.nombre as nom_pais,
 m.codigo as cod_marca,m.descripcion as descp_marca,

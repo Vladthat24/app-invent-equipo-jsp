@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div class="modal fade" id="agregarClienteModal">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
@@ -16,21 +18,20 @@
 
 					<div class="form-group">
 						<label for="Pais">Pais</label> 
-						${paiss}
-						<select class="form-select" name="idpais" aria-label="Default select example">
-						<c:forEach var="paiss" items="${pais}" varStatus="status">
->								<option value="${paiss.idpais}">${paiss.codigo}</option>
-						 </c:forEach>
-							
+						<select class="form-select"
+							name="idpais" aria-label="Default select example">
+							<c:forEach var="paiss" items="${pais}" varStatus="status">
+>								<option value="${paiss.idpais}">${paiss.nombre}</option>
+							</c:forEach>
 						</select>
 					</div>
 					<div class="form-group">
-						<label for="Pais">Marca</label> <select class="form-select"
+						<label for="Pais">Marca</label>
+						<select class="form-select"
 							name="idmarca" aria-label="Default select example">
-							<option value="1">LG</option>
-							<option value="2">Dell</option>
-							<option value="3">Levono</option>
-
+							<c:forEach var="marcas" items="${marca}" varStatus="status">
+>								<option value="${marcas.idmarca}">${marcas.descripcion}</option>
+							</c:forEach>
 						</select>
 					</div>
 					<div class="form-group">
@@ -45,6 +46,10 @@
 					<div class="form-group">
 						<label for="estado">Estado</label> <input type="text"
 							class="form-control" name="estado" required>
+					</div>
+					<div class="form-group">
+						<label for="precio">Precio</label> <input type="text"
+							class="form-control" name="precio" required>
 					</div>
 
 				</div>

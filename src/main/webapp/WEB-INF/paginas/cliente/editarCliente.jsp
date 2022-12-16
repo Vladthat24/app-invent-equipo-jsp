@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -33,36 +35,41 @@
 							</div>
 							<div class="card-body">
 								<div class="form-group">
-									<label for="Pais">Pais</label> 
-									<select class="form-select"
+									<label for="Pais">Pais</label> <select class="form-select"
 										name="idpais" aria-label="Default select example">
-										<option value="${equipo.idpais}">${equipo.idpais}</option>
-										<option value="1">Peru</option>
-										<option value="2">Ecuador</option>
-										<option value="3">Argentina</option>
+										<c:forEach var="paiss" items="${pais}" varStatus="status">
+>								<option value="${paiss.idpais}">${paiss.nombre}</option>
+										</c:forEach>
 									</select>
 								</div>
 								<div class="form-group">
 									<label for="Pais">Marca</label> <select class="form-select"
 										name="idmarca" aria-label="Default select example">
-										<option value="${equipo.idmarca}">${equipo.idmarca}</option>
-										<option value="2">Dell</option>
-										<option value="3">Levono</option>
-
+										<c:forEach var="marcas" items="${marca}" varStatus="status">
+>								<option value="${marcas.idmarca}">${marcas.descripcion}</option>
+										</c:forEach>
 									</select>
 								</div>
 								<div class="form-group">
 									<label for="nombre">Nombre</label> <input type="text"
-										class="form-control" name="nombre" required value="${equipo.nombre}">
+										class="form-control" name="nombre" required
+										value="${equipo.nombre}">
 								</div>
 								<div class="form-group">
 									<label for="descripcion">Descripcion</label> <input type="text"
-										class="form-control" name="descripcion" required value="${equipo.descripcion}">
+										class="form-control" name="descripcion" required
+										value="${equipo.descripcion}">
 								</div>
 								<!-- comment -->
 								<div class="form-group">
 									<label for="estado">Estado</label> <input type="text"
-										class="form-control" name="estado" required value="${equipo.estado}">
+										class="form-control" name="estado" required
+										value="${equipo.estado}">
+								</div>
+								<div class="form-group">
+									<label for="precio">Precio</label> <input type="text"
+										class="form-control" name="precio" required
+										value="${equipo.precio}">
 								</div>
 							</div>
 							<!-- comment -->

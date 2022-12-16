@@ -4,14 +4,19 @@
 
 <section id="clientes">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-4">
+
+			<form class="form" style="display:flex;margin-bottom: 50px;" action="${pageContext.request.contextPath}/ServletControlador?accion=select">
 				<div class="form-group">
 					<input type="text" class="form-control" name="precio"
 						placeholder="Ingresa precio">
-					<button class="btn btn-primary">Consultar</button>
+					
 				</div>
-			</div>
+				<div class="form-group">
+				<input class="form-control btn btn-primary" type="submit" value="Buscar">
+				</div>
+			</form>
+
+
 
 			<div class="col-md-9">
 				<div class="card">
@@ -31,12 +36,12 @@
 								<th>Nombre Equipo</th>
 								<th>Descrp Equipo</th>
 								<th>Estado EQuipo</th>
+								<th>Precio</th>
 								<th></th>
 							</tr>
 
 						</thead>
 						<tbody>
-
 							<c:forEach var="equipos" items="${equipo}" varStatus="status">
 								<tr>
 									<td>${equipos[0]}</td>
@@ -47,6 +52,7 @@
 									<td>${equipos[5]}</td>
 									<td>${equipos[6]}</td>
 									<td>${equipos[7]}</td>
+									<td>${equipos[8]}</td>
 									<td><a
 										href="${pageContext.request.contextPath}/ServletControlador?accion=editar&idEquipo=${equipos[0]}"
 										class="btn btn-secondary"> <i
