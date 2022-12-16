@@ -131,6 +131,9 @@ public class ServletControlador extends HttpServlet {
 
 	protected void modificarCliente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.print("idpais::::" + request.getParameter("idpais"));
+		System.out.print("idmarca:::" + request.getParameter("idmarca"));
+		
 		int idEquipo = Integer.parseInt(request.getParameter("idEquipo"));
 		int idpais = Integer.parseInt(request.getParameter("idpais"));
 		int idmarca = Integer.parseInt(request.getParameter("idmarca"));

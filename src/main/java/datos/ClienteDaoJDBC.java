@@ -12,7 +12,7 @@ public class ClienteDaoJDBC {
 
 	private static final String SQL_SELECT_BY_ID = "select * from equipo where idequipo=?";
 	private static final String SQL_INSERT = "insert into equipo (idpais,idmarca,nombre,descripcion,estado,precio) VALUES(?,?,?,?,?,?)";
-	private static final String SQL_UPDATE = "UPDATE equipo SET idpais=?, idmarca=?, nombre=?, descripcion=?, estado=? WHERE idequipo=?";
+	private static final String SQL_UPDATE = "UPDATE equipo SET idpais=?, idmarca=?, nombre=?, descripcion=?, estado=?, precio=? WHERE idequipo=?";
 	private static final String SQL_DELETE = "DELETE FROM equipo WHERE idequipo=?";
 
 	public List<Object[]> listar() {
@@ -203,7 +203,8 @@ public class ClienteDaoJDBC {
 			stmt.setString(3, equipo.getNombre());
 			stmt.setString(4, equipo.getDescripcion());
 			stmt.setString(5, equipo.getEstado());
-			stmt.setInt(6, equipo.getIdequipo());
+			stmt.setDouble(6, equipo.getPrecio());
+			stmt.setInt(7, equipo.getIdequipo());
 
 			rows = stmt.executeUpdate();
 
